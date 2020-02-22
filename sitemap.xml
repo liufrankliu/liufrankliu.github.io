@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/02/21/html5/</loc>
+    
+    <lastmod>2020-02-22T15:59:30.890Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/02/21/springboot%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E9%87%8A/</loc>
+    
+    <lastmod>2020-02-21T02:42:31.246Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/02/21/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2020-02-21T02:18:57.128Z</lastmod>
