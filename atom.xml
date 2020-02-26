@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>wo de bo ke</title>
+  <title>my blog</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-22T15:59:30.890Z</updated>
+  <updated>2020-02-26T01:45:26.584Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,196 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>es6笔记</title>
+    <link href="http://yoursite.com/2020/02/26/es6/"/>
+    <id>http://yoursite.com/2020/02/26/es6/</id>
+    <published>2020-02-26T01:28:45.043Z</published>
+    <updated>2020-02-26T01:45:26.584Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="es6笔记"><a href="#es6笔记" class="headerlink" title="es6笔记"></a>es6笔记</h1><p>prototype原型</p>
+<p>变量的解构赋值要使undefined才会默认值生效</p>
+<p>数组是复合的数据类型，直接复制的话，只是复制了指向底层数据结构的指针，而不是克隆一个全新的数组。</p>
+<p>Object.keys返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名。</p>
+<p>Object.values方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。</p>
+<p>set 不会添加相同的数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const s = new Set();</div><div class="line"></div><div class="line">[2, 3, 5, 4, 5, 2, 2].forEach(x =&gt; s.add(x));</div><div class="line"></div><div class="line">for (let i of s) &#123;</div><div class="line">  console.log(i);</div><div class="line">&#125;</div><div class="line">// 2 3 5 4</div></pre></td></tr></table></figure></p>
+<p>Set.prototype.keys()：返回键名的遍历器;<br>Set.prototype.values()：返回键值的遍历器;<br>Set.prototype.entries()：返回键值对的遍历器;<br>Set.prototype.forEach()：使用回调函数遍历每个成员;</p>
+<p>Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。<br>Map.prototype.keys()：返回键名的遍历器。<br>Map.prototype.values()：返回键值的遍历器。<br>Map.prototype.entries()：返回所有成员的遍历器。<br>Map.prototype.forEach()：遍历 Map 的所有成员。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for (let item of map.entries()) &#123;</div><div class="line">  console.log(item[0], item[1]);</div><div class="line">&#125;</div><div class="line">// &quot;F&quot; &quot;no&quot;</div><div class="line">// &quot;T&quot; &quot;yes&quot;</div><div class="line"></div><div class="line">for (let [key, value] of map.entries()) &#123;</div><div class="line">  console.log(key, value);</div><div class="line">&#125;</div><div class="line">// &quot;F&quot; &quot;no&quot;</div><div class="line">// &quot;T&quot; &quot;yes&quot;</div></pre></td></tr></table></figure></p>
+<p>Iterator 的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是 ES6 创造了一种新的遍历命令for…of循环，Iterator 接口主要供for…of消费。</p>
+<p>arguments、super、new.target  </p>
+<h2 id="this关键字总是指向函数所在的当前对象，super指向当前对象的原型对象"><a href="#this关键字总是指向函数所在的当前对象，super指向当前对象的原型对象" class="headerlink" title="this关键字总是指向函数所在的当前对象，super指向当前对象的原型对象"></a>this关键字总是指向函数所在的当前对象，super指向当前对象的原型对象</h2><p>prototype 是引入的一个针对于某一类的对象的方法，而且特殊的地方便在于：它是一个给类的对象添加方法的方法！</p>
+<p>Number.add(num)：作用，数字相加</p>
+<p>实现方法：Number.prototype.add = function(num){return(this+num);}</p>
+<h2 id="试验：alert-3-add-15-gt-显示-18"><a href="#试验：alert-3-add-15-gt-显示-18" class="headerlink" title="试验：alert((3).add(15)) -&gt; 显示 18"></a>试验：alert((3).add(15)) -&gt; 显示 18</h2><p>iterator<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var someString = &quot;hi&quot;;</div><div class="line">typeof someString[Symbol.iterator]</div><div class="line">// &quot;function&quot;</div><div class="line"></div><div class="line">var iterator = someString[Symbol.iterator]();</div><div class="line"></div><div class="line">for (var value of iterator) &#123;</div><div class="line">  console.log(value); // 0, 1, 2</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var str = new String(&quot;hi&quot;);</div><div class="line"></div><div class="line">[...str] // [&quot;h&quot;, &quot;i&quot;]</div><div class="line"></div><div class="line">str[Symbol.iterator] = function() &#123;</div><div class="line">  return &#123;</div><div class="line">    next: function() &#123;</div><div class="line">      if (this._first) &#123;</div><div class="line">        this._first = false;</div><div class="line">        return &#123; value: &quot;bye&quot;, done: false &#125;;</div><div class="line">      &#125; else &#123;</div><div class="line">        return &#123; done: true &#125;;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    _first: true</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">[...str] // [&quot;bye&quot;]</div><div class="line">str // &quot;hi&quot;</div></pre></td></tr></table></figure>
+<p>数组原生具备iterator接口（即默认部署了Symbol.iterator属性），for…of循环本质上就是调用这个接口产生的遍历器，可以用下面的代码证明。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const arr = [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;];</div><div class="line"></div><div class="line">for(let v of arr) &#123;</div><div class="line">  console.log(v); // red green blue</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>Generate<br>执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。</p>
+<p>形式上，Generator 函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。</p>
+<p>由于 Generator 函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数。yield表达式就是暂停标志。</p>
+<hr>
+<p>JavaScript 语言中，生成实例对象的传统方法是通过构造函数。下面是一个例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Point(x, y) &#123;</div><div class="line">  this.x = x;</div><div class="line">  this.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Point.prototype.toString = function () &#123;</div><div class="line">  return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var p = new Point(1, 2);</div></pre></td></tr></table></figure></p>
+<p>ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Point &#123;</div><div class="line">  constructor(x, y) &#123;//构造方法</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  toString() &#123;</div><div class="line">    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>继承</p>
+<p>子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，然后再对其进行加工，加上子类自己的实例属性和方法。如果不调用super方法，子类就得不到this对象。</p>
+<p>在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Point &#123;</div><div class="line">  constructor(x, y) &#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class ColorPoint extends Point &#123;</div><div class="line">  constructor(x, y, color) &#123;</div><div class="line">    this.color = color; // ReferenceError</div><div class="line">    super(x, y);</div><div class="line">    this.color = color; // 正确</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;es6笔记&quot;&gt;&lt;a href=&quot;#es6笔记&quot; class=&quot;headerlink&quot; title=&quot;es6笔记&quot;&gt;&lt;/a&gt;es6笔记&lt;/h1&gt;&lt;p&gt;prototype原型&lt;/p&gt;
+&lt;p&gt;变量的解构赋值要使undefined才会默认值生效&lt;/p&gt;
+&lt;p&gt;数组是复合的
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue笔记</title>
+    <link href="http://yoursite.com/2020/02/26/vue%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/02/26/vue笔记/</id>
+    <published>2020-02-26T01:28:25.792Z</published>
+    <updated>2020-02-26T01:44:50.095Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="vue笔记"><a href="#vue笔记" class="headerlink" title="vue笔记"></a>vue笔记</h1><p>axios</p>
+<p>基于Promise的HTTP请求客户端, 可以同时在浏览器和node.js使用.</p>
+<hr>
+<p>Vuex 主要有四部分<br>state：包含了store中存储的各个状态。<br>getter: 类似于 Vue 中的计算属性，根据其他 getter 或 state 计算返回值。<br>mutation: 一组方法，是改变store中状态的执行者，只能是同步操作。<br>action: 一组方法，其中可以包含异步操作。</p>
+<p>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。也就是说，前面两个都是状态值本身，mutations才是改变状态的执行者。</p>
+<p>想要异步地更改状态，就需要使用action。action并不直接改变state，而是发起mutation</p>
+<hr>
+<p>箭头函数相当于匿名函数，并且简化了函数定义。箭头函数有两种格式，一种只包含一个表达式，连{ … }和return都省略掉了。还有一种可以包含多条语句，这时候就不能省略{ … }和return。</p>
+<hr>
+<p>事件冒泡<br>事件冒泡的走向是由子节点向父节点去触发同名事件</p>
+<p>stop 阻止自身的冒泡事件<br>prevent 阻止默认事件<br>capture 添加事件侦听器时使用事件捕获模式 :   用捕获的模式来触发<br>self : 阻止自己身上的冒泡行为<br>once 事件只触发一次  </p>
+<p>v-if 和 v-show 条件渲染<br>v-if：根据表达式的值的真假条件，销毁或重建元素<br>v-show：根据表达式之真假值，切换元素的 display CSS 属性  </p>
+<p>v-model双向绑定数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;h1 v-show=&quot;true&quot;&gt;v-show的显示和隐藏&lt;/h1&gt;</div><div class="line">    &lt;h1 v-if=&quot;isIf&quot;&gt;v-if的显示和隐藏&lt;/h1&gt;</div><div class="line">    &lt;input type=&quot;text&quot; v-model=&quot;msg&quot;/&gt; </div><div class="line">    &lt;button @click = &quot;aa&quot;&gt;点我&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    let vm = new Vue(&#123;</div><div class="line">        el:&quot;#app&quot;,</div><div class="line">        data:&#123;</div><div class="line">            isIf:true,</div><div class="line">            msg:&quot;请输入用户名&quot;</div><div class="line">        &#125;,</div><div class="line">        methods:&#123;</div><div class="line">        	aa : function()&#123;</div><div class="line">        		console.log(this.msg);</div><div class="line">        	&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">```    </div><div class="line">v-for循环  </div><div class="line">v-bind绑定属性  </div><div class="line">```&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;!--绑定属性--&gt;</div><div class="line">    &lt;img v-bind:src=&quot;imgSrc&quot; alt=&quot;&quot;&gt;</div><div class="line">    &lt;!--简写--&gt;</div><div class="line">    &lt;img :src=&quot;imgSrc&quot; alt=&quot;&quot;&gt;</div><div class="line">    </div><div class="line">    &lt;!--&lt;div style=&quot;width: 100px;height: 100px;&quot; v-bind:class=&apos;isred?&quot;red&quot;:&quot;blue&quot;&apos;&gt;&lt;/div&gt;--&gt; </div><div class="line"></div><div class="line">    &lt;!--class绑定 : 绑定的是字符串的类名--&gt;</div><div class="line">    &lt;h2 :class=&quot;&apos;red&apos;&quot;&gt;class绑定&lt;/h2&gt;</div><div class="line">    &lt;h2 :class=&quot;[&apos;red&apos;, &apos;pink&apos;]&quot;&gt;class绑定&lt;/h2&gt;</div><div class="line">    &lt;h2 :class=&quot;red&quot;&gt;不写引号class绑定,去vm实例中找&lt;/h2&gt;</div><div class="line"></div><div class="line">    &lt;h2 :class=&quot;&#123;red : flag, pink:true&#125;&quot;&gt;以对象的方式去写,通过布尔值判定,key是style里面的类名&lt;/h2&gt;</div><div class="line"></div><div class="line">    &lt;!--三元表达式: 当flag为true,就有red样式, 否则有pink样式--&gt;</div><div class="line">    &lt;h2 :class=&quot;[flag?red:pink]&quot;&gt;三元表达式&lt;/h2&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    let vm = new Vue(&#123;</div><div class="line">        el:&apos;#app&apos;,</div><div class="line">        data:&#123;</div><div class="line">            imgSrc:&apos;1.png&apos;,</div><div class="line">            red:&apos;red&apos;,</div><div class="line">            flag:true</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>v-on添加事件  </p>
+<hr>
+<p>父子组件传值<br>父子组件的关系可以总结为 prop 向下传递，事件向上传递。父组件通过 prop 给子组件下发数据，子组件通过事件给父组件发送消息，</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;vue笔记&quot;&gt;&lt;a href=&quot;#vue笔记&quot; class=&quot;headerlink&quot; title=&quot;vue笔记&quot;&gt;&lt;/a&gt;vue笔记&lt;/h1&gt;&lt;p&gt;axios&lt;/p&gt;
+&lt;p&gt;基于Promise的HTTP请求客户端, 可以同时在浏览器和node.js使用.&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js笔记</title>
+    <link href="http://yoursite.com/2020/02/26/js%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/02/26/js笔记/</id>
+    <published>2020-02-26T01:28:04.082Z</published>
+    <updated>2020-02-26T01:44:01.621Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="js笔记"><a href="#js笔记" class="headerlink" title="js笔记"></a>js笔记</h1><p>js基本数据类型  </p>
+<h2 id="String-Number-Boolean-Null-Undefined，Symbo"><a href="#String-Number-Boolean-Null-Undefined，Symbo" class="headerlink" title="String, Number, Boolean, Null, Undefined，Symbo  "></a>String, Number, Boolean, Null, Undefined，Symbo  </h2><p>css单位<br>vw、vh 当前视口高度的百分比<br>em 是相对于其父元素的字体大小<br>rem 是相对于根元素（html）的字体大小  </p>
+<p>css选择器优先级<br>内联&gt;id选择器&gt;类选择器&gt;标签选择器  </p>
+<hr>
+<p>块级元素、行内元素的区别<br>·行内元素和其他行内元素都会在一条水平线上排列，都是在同一行的；块级元素却总是会在新的一行开始排列，各个块级元素独占一行，垂直向下排列<br>·行内元素不可以设置宽高，宽度高度随文本内容的变化而变化，同时在设置外边距margin上下无效，左右有效，内填充padding上下无效，左右有效；<br>·块级元素可以设置宽高，并且宽度高度以及外边距，内填充都可随意控制。        </p>
+<hr>
+<p>元素的层叠次序<br>z-index高的在上<br>子元素在父元素上  </p>
+<hr>
+<p>cookie、session<br>cookie属性<br>name属性 唯一必须设置的属性，表示Cookie的名称。<br>expires属性 指定Cookie在删除之前要在客户机上保持多长时间，<br>path属性 决定Cookie对于服务器上的其他网页的可用性，在一般情况下，Cookie对于同一目录下的所有页面都可用。当设置path属性后，Cookie只对指定路径以及子路径的所有网页有效。<br>domain属性 　许多服务器都由多台服务器组成，domian属性主要设置相同域的多台服务器共享一个Cookie。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">document.cookie = name + &quot;=&quot; + escape(value) + &quot;;expires=&quot; + exp.toGMTString();//存cookie</div><div class="line"></div><div class="line">let strCookie = document.cookie.split(&quot;;&quot;);</div><div class="line">for(let i = 0 ; i &lt; strCookie.length ; i++ )</div><div class="line">&#123;</div><div class="line">	let strHead = strCookie[i].split(&quot;=&quot;);</div><div class="line">	if(strHead[0] == &quot;userid&quot;)</div><div class="line">	&#123;</div><div class="line">		username.value = strHead[1];</div><div class="line">	&#125;</div><div class="line">&#125;//拿cookie</div></pre></td></tr></table></figure></p>
+<p>Cookie是浏览器访问一些网站后，这些网站存放在客户端的一组数据<br>Cookie的Domain和Path属性标识了这个Cookie是哪一个网站发送给浏览器的；Cookie的Expires属性标识了Cookie的有 效时间，当Cookie的有效时间过了之后，这些数据就被自动删除了。<br>因为每一个会话有一个sessionId，该SessionId是在浏览器本地的cookie中存储的，而每一个SessionId的过期时间是浏览会话结束时。所以只要当前浏览器窗口没有关闭，该sessionId依旧是存活的。</p>
+<hr>
+<p>深拷贝与浅拷贝<br>浅拷贝和深拷贝都只针对于引用数据类型，浅拷贝只复制指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存；但深拷贝会另外创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象；<br>区别：浅拷贝只复制对象的第一层属性、深拷贝可以对对象的属性进行递归复制；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//Object.assign来实现深拷贝</div><div class="line">let obj1 = &#123;</div><div class="line">   a: &#123;</div><div class="line">     b: 1</div><div class="line">   &#125;,</div><div class="line">   c: 2</div><div class="line">&#125;</div><div class="line">let obj2 = Object.assign(&#123;&#125;,obj1)</div><div class="line">obj2.a.b = 3;</div><div class="line">obj2.c = 3</div><div class="line">console.log(obj1.a.b); // 3</div><div class="line">console.log(obj2.a.b); // 3</div><div class="line">console.log(obj1.c); // 2</div><div class="line">console.log(obj2.c); // 3</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;js笔记&quot;&gt;&lt;a href=&quot;#js笔记&quot; class=&quot;headerlink&quot; title=&quot;js笔记&quot;&gt;&lt;/a&gt;js笔记&lt;/h1&gt;&lt;p&gt;js基本数据类型  &lt;/p&gt;
+&lt;h2 id=&quot;String-Number-Boolean-Null-Undefined，Sy
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器的渲染机制</title>
+    <link href="http://yoursite.com/2020/02/26/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/"/>
+    <id>http://yoursite.com/2020/02/26/浏览器渲染机制/</id>
+    <published>2020-02-26T01:27:07.180Z</published>
+    <updated>2020-02-26T01:56:09.056Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="浏览器的渲染机制"><a href="#浏览器的渲染机制" class="headerlink" title="浏览器的渲染机制"></a>浏览器的渲染机制</h1><p>GUI渲染线程<br>·负责渲染浏览器界面，解析HTML,CSS,构建DOM树和RenderObject树，布局和绘制等。<br>·当界面需要重绘或由于某种操作引发回流时，该线程就会执行。  </p>
+<h2 id="·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）-GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。"><a href="#·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）-GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。" class="headerlink" title="·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）,GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。 "></a>·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）,GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。 </h2><p>JS引擎线程<br>JS引擎线程负责解析JavaScript脚本，运行代码。<br>JS引擎一直等待着任务队列中任务的到来，然后加以处理，一个Tab页（render进程）中无论什么时候都只有一个JS线程在运行JS程序。  </p>
+<h2 id="同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。"><a href="#同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。" class="headerlink" title="同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。  "></a>同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。  </h2><p>事件触发线程<br>归属于浏览器而不是JS引擎，用来控制事件循环（可以理解成JS引擎自己都忙不过来，需要浏览器另开线程协助）。<br>当JS引擎执行代码块如setTimeout时（也可来自浏览器内核的其它线程，如鼠标点击，AJAX异步请求等），会将对应任务添加到事件线程中。<br>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。  </p>
+<h2 id="注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。"><a href="#注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。" class="headerlink" title="注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。  "></a>注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。  </h2><p>定时触发器线程<br>传说中的setTimeout和setInterval所在的线程<br>浏览器定时计数器并不是由JavaScript引擎计数的，（因为JavaScript引擎是单线程的，如果处于阻塞线程状态就会影响计时的准确）  </p>
+<h2 id="因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）"><a href="#因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）" class="headerlink" title="因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）  "></a>因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）  </h2><p>异步http请求线程<br>在XMLHttpRequest在连接后是通过浏览器新型一个线程请求<br>将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中，再由JavaScript引擎执行  </p>
+<h2 id><a href="#" class="headerlink" title></a><img src="/.com//ceshi/web1.png" alt="流程"></h2><h3 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h3><p>浏览器渲染引擎工作流程都差不多，大致分为5步，创建DOM树——创建StyleRules——创建Render树——布局Layout——绘制Painting</p>
+<p>第一步，用HTML分析器，分析HTML元素，构建一颗DOM树(标记化和树构建)。</p>
+<p>第二步，用CSS分析器，分析CSS文件和元素上的inline样式，生成页面的样式表。</p>
+<p>第三步，将DOM树和样式表，关联起来，构建一颗Render树(这一过程又称为Attachment)。每个DOM节点都有attach方法，接受样式信息，返回一个render对象(又名renderer)。这些render对象最终会被构建成一颗Render树。</p>
+<p>第四步，有了Render树，浏览器开始布局，为每个Render树上的节点确定一个在显示屏上出现的精确坐标。</p>
+<p>第五步，Render树和节点显示坐标都有了，就调用每个节点paint方法，把它们绘制出来。</p>
+<h3 id="js操作dom的代价"><a href="#js操作dom的代价" class="headerlink" title="js操作dom的代价"></a>js操作dom的代价</h3><p>用我们传统的开发模式，原生JS或JQ操作DOM时，浏览器会从构建DOM树开始从头到尾执行一遍流程。在一次操作中，我需要更新10个DOM节点，浏览器收到第一个DOM请求后并不知道还有9次更新操作，因此会马上执行流程，最终执行10次。例如，第一次计算完，紧接着下一个DOM更新请求，这个节点的坐标值就变了，前一次计算为无用功。计算DOM节点坐标值等都是白白浪费的性能。即使计算机硬件一直在迭代更新，操作DOM的代价仍旧是昂贵的，频繁操作还是会出现页面卡顿，影响用户体验。</p>
+<h3 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h3><p>虚拟DOM就是为了解决浏览器性能问题而被设计出来的。如前，若一次操作中有10次更新DOM的动作，虚拟DOM不会立即操作DOM，而是将这10次更新的diff内容保存到本地一个JS对象中，最终将这个JS对象一次性attch到DOM树上，再进行后续操作，避免大量无谓的计算量。所以，用JS对象模拟DOM节点的好处是，页面的更新可以先全部反映在JS对象(虚拟DOM)上，操作内存中的JS对象的速度显然要更快，等更新完成后，再将最终的JS对象映射成真实的DOM，交由浏览器去绘制。</p>
+<p><img src="/.com//web2.png" alt="过程"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;浏览器的渲染机制&quot;&gt;&lt;a href=&quot;#浏览器的渲染机制&quot; class=&quot;headerlink&quot; title=&quot;浏览器的渲染机制&quot;&gt;&lt;/a&gt;浏览器的渲染机制&lt;/h1&gt;&lt;p&gt;GUI渲染线程&lt;br&gt;·负责渲染浏览器界面，解析HTML,CSS,构建DOM树和Render
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue是如何工作的-双向绑定</title>
+    <link href="http://yoursite.com/2020/02/23/vue%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/"/>
+    <id>http://yoursite.com/2020/02/23/vue是如何工作的/</id>
+    <published>2020-02-23T02:22:24.662Z</published>
+    <updated>2020-02-24T08:20:28.373Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="vue是如何工作的-双向绑定"><a href="#vue是如何工作的-双向绑定" class="headerlink" title="vue是如何工作的-双向绑定"></a>vue是如何工作的-双向绑定</h1><p>双向绑定是由数据劫持结合发布者订阅者模式来实现的</p>
+<p>通过Object.defineProperty()来劫持对象属性的setter和getter操作<br>object.defineProperty(obj , prop , descriptor)<br>obj :是要在其上定义属性的对象  prop: 要定义或修改的属性的名称  description: 将被定义或修改的属性描述符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var book = &#123;&#125;;</div><div class="line">var name = &apos;&apos;;</div><div class="line">	Object.defineProperty(book , &apos;name&apos; , &#123;</div><div class="line">		set: function(value)&#123;</div><div class="line">			name = value;</div><div class="line">			console.log(&apos;you got a name called &apos; + value);</div><div class="line">		&#125;,</div><div class="line">		get: function()&#123;</div><div class="line">			console.log(&apos;get方法被监听到&apos;);</div><div class="line">			return &apos;&lt;&apos; + name +&apos;&gt;&apos;;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div><div class="line">	book.name = &apos;人性的弱点&apos;;</div><div class="line">	console.log(book.name);</div></pre></td></tr></table></figure>
+<p>这样便输出了带&lt;&gt;的name</p>
+<p>发布者-订阅者模式<br>打个比方，所谓的订阅者，就像我们在日常生活中订阅报纸一样，在订阅报纸的时候，通常都得需要在报社或者一些中介机构进行注册，当有新版的报纸发刊的时候，邮递员就需要向订阅该报纸的人，依次发放报纸．</p>
+<p>所有如果用代码实现该模式，需要进行两个步骤：<br>1、初始化发布者、订阅者。<br>2、订阅者需要注册到发布者，发布者发布消息时，依次向订阅者发布消息。</p>
+<p>实现过程<br>那么要对数据进行劫持监听，所以我们首先要设置一个监听器Observer,用来监听所有的属性，当属性变化时，就需要通知订阅者Watcher,看是否需要更新．因为属性可能是多个，所以会有多个订阅者，故我们需要一个消息订阅器Dep来专门收集这些订阅者，并在监听器Observer和订阅者Watcher之间进行统一的管理．以为在节点元素上可能存在一些指令，所以我们还需要有一个指令解析器Compile，对每个节点元素进行扫描和解析，将相关指令初始化成一个订阅者Watcher，并替换模板数据并绑定相应的函数，这时候当订阅者Watcher接受到相应属性的变化，就会执行相对应的更新函数，从而更新视图．</p>
+<p>整理上面的思路，我们需要实现三个步骤，来完成双向绑定：<br>1.实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者。<br>2.实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。<br>3.实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</p>
+<p>1.实现一个监听器Observer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">function defineReactive(data , key , val) &#123;</div><div class="line">	observe(val); //递归遍历所有属性</div><div class="line">	Object.defineProperty(data , key , &#123;</div><div class="line">		enumerable: true,//当且仅当该属性的enumerable为true时，该属性才能够出现在对象的枚举属性中</div><div class="line">		configurable: true,//当且仅当该属性的 configurable 为 true 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。</div><div class="line">		get: function()&#123;</div><div class="line">			return val;</div><div class="line">		&#125;,</div><div class="line">		set:function(newVal)&#123;</div><div class="line">			val = newVal;</div><div class="line">			console.log(&apos;属性&apos;+key+&apos;已经被监听,现在值为:&quot;&apos;+newVal.toString()+&apos;&quot;&apos;);			</div><div class="line">		&#125;</div><div class="line">	&#125;)	</div><div class="line">&#125;//对劫持函数进行重新定义</div><div class="line"></div><div class="line">function observe(data)&#123;</div><div class="line">	if(!data || typeof data !== &apos;object&apos;)&#123;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	Object.keys(data).forEach(function(key)&#123;</div><div class="line">		defineReactive(data,key,data[key]);</div><div class="line">	&#125;)</div><div class="line">&#125;//实现劫持</div><div class="line"></div><div class="line">var library = &#123;</div><div class="line">    book1: &#123;</div><div class="line">        name: &apos;&apos;</div><div class="line">    &#125;,</div><div class="line">    book2: &apos;&apos;</div><div class="line">&#125;;</div><div class="line">observe(library);</div><div class="line">library.book1.name = &apos;vue权威指南&apos;; // 属性name已经被监听了，现在值为：“vue权威指南”</div><div class="line">library.book2 = &apos;没有此书籍&apos;;  // 属性book2已经被监听了，现在值为：“没有此书籍”</div></pre></td></tr></table></figure></p>
+<p>通过observe()方法进行遍历向下找到所有的属性，并通过defineReactive()方法进行数据劫持监听．</p>
+<p>在上面的思路中，我们需要一个可以容纳消息订阅者的消息订阅器Dep，订阅器主要收集消息订阅者，然后在属性变化时执行相应订阅者的更新函数，那么消息订阅器Dep需要有一个容器，用来存放消息订阅者．我们将上面的监听器Observer稍微修改一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">function defineReactive(data,key,val) &#123;</div><div class="line">    observe(val);</div><div class="line">    var dep = new Dep();</div><div class="line">    Object.defineProperty(data, key, &#123;</div><div class="line">        enumerable: true,</div><div class="line">        configurable: true,</div><div class="line">        get: function() &#123;</div><div class="line">            if (是否需要添加订阅者) &#123;    //Watcher初始化触发</div><div class="line">                dep.addSub(watcher); // 在这里添加一个订阅者</div><div class="line">            &#125;</div><div class="line">            return val;</div><div class="line">        &#125;,</div><div class="line">        set: function(newVal) &#123;</div><div class="line">            if (val === newVal) &#123;</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            val = newVal;</div><div class="line">            console.log(&apos;属性&apos; + key + &apos;已经被监听了，现在值为：“&apos; + newVal.toString() + &apos;”&apos;);</div><div class="line">            dep.notify(); // 如果数据变化，通知所有订阅者</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function observe(data) &#123;</div><div class="line">    if(!data || typeof data !== &apos;object&apos;) &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    Object.keys(data).forEach(function(key)&#123;</div><div class="line">        defineReactive(data,key,data[key]);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Dep() &#123;</div><div class="line">    this.subs = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//prototype 属性使您有能力向对象添加属性和方法</div><div class="line">//prototype这个属性只有函数对象才有，具体的说就是构造函数具有.只要你声明定义了一个函数对象，这个prototype就会存在</div><div class="line">//对象实例是没有这个属性</div><div class="line">Dep.prototype = &#123;                        </div><div class="line">    addSub:function(sub) &#123;</div><div class="line">        this.subs.push(sub);</div><div class="line">    &#125;,</div><div class="line">    notify:function() &#123;</div><div class="line">        this.subs.forEach(function(sub) &#123;</div><div class="line">            sub.update();        //通知每个订阅者检查更新</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Dep.target = null;</div></pre></td></tr></table></figure>
+<p>在代码中，我们将订阅器Dep添加一个订阅者设计在get里面，这是为了让Watcher在初始化时触发，因此判断是否需要需要添加订阅者，至于具体实现的方法，我们在下文中深究．在set方法中，如果函数变化，就会通知所有的订阅者，订阅者们将会执行相对应的更新函数，到目前为止，一个比较完善的Observer已经成型了，下面我们要写订阅者Watcher.</p>
+<p>2.Watcher<br>根据我们的思路，订阅者Wahcher在初始化时要将自己添加到订阅器Dep中，那么如何进行添加呢？</p>
+<p>我们已经知道监听器Observer是在get函数中执行了添加订阅者的操作的，所以我们只需要在订阅者Watcher在初始化时触发相对应的get函数来执行添加订阅者的操作即可．那么怎么触发对应的get函数呢？我们只需要获取对应的属性值，就可以通过Object.defineProperty( )触发对应的get了．</p>
+<p>在这里需要注意一个细节，我们只需要在订阅者初始化时才执行添加订阅者，所以我们需要一个判断，在Dep.target上缓存一下订阅者，添加成功后去除就行了，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function Watcher(vm,exp,cb) &#123;</div><div class="line">    this.vm = vm;    //指向SelfVue的作用域</div><div class="line">    this.exp = exp;  //绑定属性的key值</div><div class="line">    this.cb = cb;    //闭包</div><div class="line">    this.value = this.get();</div><div class="line">&#125;</div><div class="line"></div><div class="line">Watcher.prototype = &#123;</div><div class="line">    update:function() &#123;</div><div class="line">        this.run();</div><div class="line">    &#125;,</div><div class="line">    run:function() &#123;</div><div class="line">        var value = this.vm.data[this.exp];</div><div class="line">        var oldVal = this.value;</div><div class="line">        if(value !== oldVal) &#123;</div><div class="line">            this.value = value;</div><div class="line">            this.cb.call(this.vm,value,oldVal);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    get:function() &#123;</div><div class="line">        Dep.target = this;                   // 缓存自己</div><div class="line">        var value = this.vm.data[this.exp];  // 强制执行监听器里的get函数</div><div class="line">        Dep.target = null;                   // 释放自己</div><div class="line">        return value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在对observe进行相应的调整<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function defineReactive(data,key,val) &#123;</div><div class="line">    observe(val);</div><div class="line">    var dep = new Dep();</div><div class="line">    Object.defineProperty(data, key, &#123;</div><div class="line">        enumerable: true,</div><div class="line">        configurable: true,</div><div class="line">        get: function() &#123;</div><div class="line">            if(Dep.target) &#123;   //判断是否需要添加订阅者</div><div class="line">                 dep.addSub(Dep.target);</div><div class="line">            &#125;</div><div class="line">            return val;</div><div class="line">        &#125;,</div><div class="line">        set: function(newVal) &#123;</div><div class="line">            if (val === newVal) &#123;</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            val = newVal;</div><div class="line">            console.log(&apos;属性&apos; + key + &apos;已经被监听了，现在值为：“&apos; + newVal.toString() + &apos;”&apos;);</div><div class="line">            dep.notify(); // 如果数据变化，通知所有订阅者</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>再定义一个SelfVue类，来实现observer和watcher的关联<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	</div><div class="line">	&lt;div id=&quot;app&quot;&gt;</div><div class="line">		&lt;h2 id=&quot;name&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/h2&gt;</div><div class="line">		&lt;input v-model = &quot;name&quot;&gt;</div><div class="line">		&lt;h1&gt;&#123;&#123;name&#125;&#125;&lt;/h1&gt;</div><div class="line">		&lt;button v-on-click=&quot;clickMe&quot;&gt;&lt;/button&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;./observer3.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;./compile2.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;./watcher1.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;./index4.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script &gt;</div><div class="line">	var ele = document.querySelector(&apos;#name&apos;);</div><div class="line">	var selfVue = new SelfVue(&#123;</div><div class="line">         name:&apos;hello world&apos;</div><div class="line">     &#125;,ele,&apos;name&apos;);</div><div class="line"></div><div class="line">function SelfVue(data,el,exp) &#123;</div><div class="line">    var self = this;</div><div class="line">    this.data = data;</div><div class="line">    //Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组</div><div class="line">    Object.keys(data).forEach(function(key) &#123;</div><div class="line">        self.proxyKeys(key);     //绑定代理属性</div><div class="line">    &#125;);</div><div class="line">    observe(data);</div><div class="line">    el.innerHTML = this.data[exp];   // 初始化模板数据的值</div><div class="line">    new Watcher(this,exp,function(value) &#123;</div><div class="line">        el.innerHTML = value;</div><div class="line">    &#125;);</div><div class="line">    return this;</div><div class="line">&#125;</div><div class="line"></div><div class="line">SelfVue.prototype = &#123;</div><div class="line">    proxyKeys:function(key) &#123;</div><div class="line">        var self = this;</div><div class="line">        Object.defineProperty(this,key,&#123;</div><div class="line">            enumerable:false,</div><div class="line">            configurable:true,</div><div class="line">            get:function proxyGetter() &#123;</div><div class="line">                return self.data[key];</div><div class="line">            &#125;,</div><div class="line">            set:function proxySetter(newVal) &#123;</div><div class="line">                self.data[key] = newVal;</div><div class="line">            &#125; </div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">	window.setTimeout(function() &#123;</div><div class="line">         console.log(&apos;name值改变了&apos;);</div><div class="line">         selfVue.data.name = &apos;byebye world&apos;;</div><div class="line">     &#125;,2000);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;vue是如何工作的-双向绑定&quot;&gt;&lt;a href=&quot;#vue是如何工作的-双向绑定&quot; class=&quot;headerlink&quot; title=&quot;vue是如何工作的-双向绑定&quot;&gt;&lt;/a&gt;vue是如何工作的-双向绑定&lt;/h1&gt;&lt;p&gt;双向绑定是由数据劫持结合发布者订阅者模式来实
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>html5</title>
     <link href="http://yoursite.com/2020/02/21/html5/"/>
     <id>http://yoursite.com/2020/02/21/html5/</id>
     <published>2020-02-21T13:30:15.339Z</published>
-    <updated>2020-02-22T15:59:30.890Z</updated>
+    <updated>2020-02-22T16:03:55.579Z</updated>
     
-    <content type="html"><![CDATA[<p>###html5</p>
-<p>可以向html添加新的元素，并为该元素定义新的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">myHero&#123;</div><div class="line">  		display: block;</div><div class="line">  		background-color: #aaa;</div><div class="line">  		padding: 50px;</div><div class="line">  		font-size: 30px;</div><div class="line">&#125;</div><div class="line">&lt;myHero&gt;我的第一个新元素&lt;/myHero&gt;</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<h1 id="html5"><a href="#html5" class="headerlink" title="html5"></a>html5</h1><p>可以向html添加新的元素，并为该元素定义新的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">myHero&#123;</div><div class="line">  		display: block;</div><div class="line">  		background-color: #aaa;</div><div class="line">  		padding: 50px;</div><div class="line">  		font-size: 30px;</div><div class="line">&#125;</div><div class="line">&lt;myHero&gt;我的第一个新元素&lt;/myHero&gt;</div></pre></td></tr></table></figure></p>
 <p>canvas绘图以及内嵌svg</p>
 <p>MathML可以使在网页内直接显示数学符号，如a的平方、线代矩阵等</p>
 <p>可以直接实现拖拽，ondragstart和setdata()来设置拖动什么，ondragover设置防止何处</p>
@@ -43,8 +225,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;###html5&lt;/p&gt;
-&lt;p&gt;可以向html添加新的元素，并为该元素定义新的样式&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;
+      &lt;h1 id=&quot;html5&quot;&gt;&lt;a href=&quot;#html5&quot; class=&quot;headerlink&quot; title=&quot;html5&quot;&gt;&lt;/a&gt;html5&lt;/h1&gt;&lt;p&gt;可以向html添加新的元素，并为该元素定义新的样式&lt;br&gt;&lt;figure class=&quot;highlight plai
     
     </summary>
     
@@ -52,14 +233,13 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>springboot的一些注解</title>
     <link href="http://yoursite.com/2020/02/21/springboot%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E9%87%8A/"/>
     <id>http://yoursite.com/2020/02/21/springboot的一些注释/</id>
     <published>2020-02-21T02:40:03.872Z</published>
-    <updated>2020-02-21T02:42:31.246Z</updated>
+    <updated>2020-02-26T01:30:26.336Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="title-springboot的一些注解"><a href="#title-springboot的一些注解" class="headerlink" title="title:springboot的一些注解"></a>title:springboot的一些注解</h2><p>###springboot的一些注解</p>
-<p>lombook<br>@Data 生成get、set、tostring、hashcode等<br>@AllArgsConstructor 根据所有属性，生成一个带参数的构造方法<br>@NoArgsConstructor 生成一个无参构造<br>@Builder 生成一个建造器对象<br>@Getter 只生成get<br>@Setter 只生成set</p>
+    <content type="html"><![CDATA[<h1 id="springboot的一些注解"><a href="#springboot的一些注解" class="headerlink" title="springboot的一些注解"></a>springboot的一些注解</h1><p>lombook<br>@Data 生成get、set、tostring、hashcode等<br>@AllArgsConstructor 根据所有属性，生成一个带参数的构造方法<br>@NoArgsConstructor 生成一个无参构造<br>@Builder 生成一个建造器对象<br>@Getter 只生成get<br>@Setter 只生成set</p>
 <p>@slf4j 日志生成器，相当于system.out<br>    public void add (int a , int b){<br>    {<br>        log.dubg(a);<br>        log,dubg(b);<br>    }</p>
 <hr>
 <p>@Controller 用来表示Spring某个类的是否可以接收HTTP请求<br>@ResponseBody 用json作为返回的数据类型<br>@Mapper为接口生成一个实现类，让别的类进行引用<br>@Repository 专门加在数据访问层，让springboot可以扫描到</p>
@@ -67,7 +247,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;title-springboot的一些注解&quot;&gt;&lt;a href=&quot;#title-springboot的一些注解&quot; class=&quot;headerlink&quot; title=&quot;title:springboot的一些注解&quot;&gt;&lt;/a&gt;title:springboot的一些注解&lt;/
+      &lt;h1 id=&quot;springboot的一些注解&quot;&gt;&lt;a href=&quot;#springboot的一些注解&quot; class=&quot;headerlink&quot; title=&quot;springboot的一些注解&quot;&gt;&lt;/a&gt;springboot的一些注解&lt;/h1&gt;&lt;p&gt;lombook&lt;br&gt;@Data 生
     
     </summary>
     
@@ -79,16 +259,16 @@
     <link href="http://yoursite.com/2020/02/21/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2020/02/21/垂直居中的方法/</id>
     <published>2020-02-21T02:07:41.273Z</published>
-    <updated>2020-02-21T02:18:57.128Z</updated>
+    <updated>2020-02-22T16:03:59.074Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="垂直居中的方法"><a href="#垂直居中的方法" class="headerlink" title="垂直居中的方法"></a>垂直居中的方法</h3><p>不需要固定的宽度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">background: #ccc;</div><div class="line">top: 50%;</div><div class="line">left: 50%;</div><div class="line">transform: translate(-50% , -50%);</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<h1 id="垂直居中的方法"><a href="#垂直居中的方法" class="headerlink" title="垂直居中的方法"></a>垂直居中的方法</h1><p>不需要固定的宽度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">background: #ccc;</div><div class="line">top: 50%;</div><div class="line">left: 50%;</div><div class="line">transform: translate(-50% , -50%);</div></pre></td></tr></table></figure></p>
 <p>需要固定的宽高才可起作用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">top: 0;</div><div class="line">height: 70px;</div><div class="line">right: 0;</div><div class="line">bottom: 0;</div><div class="line">left: 0;</div><div class="line">margin: auto;</div></pre></td></tr></table></figure></p>
 <p>设定父层display:flex以及设定次轴(cross axis)属性align-items:center ，这个方式的优点是此层不需要设定高度即可自动居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">	width: 500px;</div><div class="line">	height: 250px;</div><div class="line">	margin: auto;</div><div class="line">	display: flex;</div><div class="line">	justify-content: center;</div><div class="line">	align-items: center;</div><div class="line">&#125;</div><div class="line">.content&#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 200px;</div><div class="line">	background: #ccc;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;div class=&quot;box&quot;&gt;</div><div class="line">	&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;垂直居中的方法&quot;&gt;&lt;a href=&quot;#垂直居中的方法&quot; class=&quot;headerlink&quot; title=&quot;垂直居中的方法&quot;&gt;&lt;/a&gt;垂直居中的方法&lt;/h3&gt;&lt;p&gt;不需要固定的宽度&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table
+      &lt;h1 id=&quot;垂直居中的方法&quot;&gt;&lt;a href=&quot;#垂直居中的方法&quot; class=&quot;headerlink&quot; title=&quot;垂直居中的方法&quot;&gt;&lt;/a&gt;垂直居中的方法&lt;/h1&gt;&lt;p&gt;不需要固定的宽度&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table
     
     </summary>
     
@@ -255,7 +435,7 @@
     <link href="http://yoursite.com/2018/02/08/%E7%A7%92%E9%80%9F5%E5%8E%98%E7%B1%B3%E5%BD%B1%E8%AF%84(%E8%BD%AC)/"/>
     <id>http://yoursite.com/2018/02/08/秒速5厘米影评(转)/</id>
     <published>2018-02-08T10:18:19.271Z</published>
-    <updated>2018-02-09T09:39:55.500Z</updated>
+    <updated>2020-02-26T01:39:50.303Z</updated>
     
     <content type="html"><![CDATA[<h3 id="别让我在街上遇到你——浅葱"><a href="#别让我在街上遇到你——浅葱" class="headerlink" title="别让我在街上遇到你——浅葱"></a>别让我在街上遇到你——浅葱</h3><p>都会有这样的经验吧。走在路上，下意识地会去寻找某个人，或者总是觉得有路人和那人相似，虽然，明知道Ta不会在这里出现，却仍然会望过去，发下呆。然后会笑自己。</p>
 <p>突然就很想念十年前那些写信的日子和落雪的阴天，突然就很想写信很想在雪地上走。漂上来的场景还有天黑时坐在摇晃的无轨车最后排，是陪我最久的101或者103。茫然看着窗外后退的房和树和人，因为熟悉，所以哪怕只是微弱的轮廓也很安心地知道那是哪里。</p>
@@ -267,7 +447,7 @@
 <p>一个城市又怎样，遇到了又如何，各有各的生活，各有各的哀乐。有时，我会在心里发一些没写收件人名字的短信，然后又在心里一个字一个字地删掉。</p>
 <p>何必打扰。</p>
 <p>………………乖乖地分割一下…………</p>
-<p>BTW，四年半以后我忍不住去打扰了一下，结果很美好呢，哈哈哈哈哈哈<br>豆瓣</p>
+<p>上转自豆瓣</p>
 <p><img src="http://p3vmw8i4e.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E7%A7%92%E9%80%9F%20%282%29.jpg" alt="秒速2"><br>。。。。。。。。。。。。。。。。。。。</p>
 <p>one more time one more chance 若能像这首歌的名字一样，能够再来一次，多好<br>突然想起黄渤演的《记忆大师》里面，最后在度过难关后，他失去了和妻子相爱的所有记忆的感受（仿佛一个旁观者一样）<br>“对不起，我失去了我们之间所有的记忆”<br>“初次见面，我叫…”<br><img src="http://p3vmw8i4e.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E7%A7%92%E9%80%9F.jpg" alt="秒速1"></p>
 ]]></content>
