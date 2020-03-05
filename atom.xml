@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-26T01:45:26.584Z</updated>
+  <updated>2020-03-05T10:00:17.695Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP状态码</title>
+    <link href="http://yoursite.com/2020/03/05/HTTP%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>http://yoursite.com/2020/03/05/HTTP状态码/</id>
+    <published>2020-03-05T09:58:14.751Z</published>
+    <updated>2020-03-05T10:00:17.695Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="HTTP的状态码"><a href="#HTTP的状态码" class="headerlink" title="HTTP的状态码"></a>HTTP的状态码</h1><h4 id="1、-2-开头-（请求成功）表示成功处理了请求的状态代码。"><a href="#1、-2-开头-（请求成功）表示成功处理了请求的状态代码。" class="headerlink" title="1、 2**开头 （请求成功）表示成功处理了请求的状态代码。"></a>1、 2**开头 （请求成功）表示成功处理了请求的状态代码。</h4><p>200 （成功） 服务器已成功处理了请求。   通常，这表示服务器提供了请求的网页。<br>201 （已创建） 请求成功并且服务器创建了新的资源。<br>202 （已接受） 服务器已接受请求，但尚未处理。<br>203 （非授权信息）   服务器已成功处理了请求，但返回的信息可能来自另一来源。<br>204 （无内容） 服务器成功处理了请求，但没有返回任何内容。<br>205 （重置内容）   服务器成功处理了请求，但没有返回任何内容。<br>206 （部分内容） 服务器成功处理了部分 GET 请求。  </p>
+<h4 id="2、-3-开头-（请求被重定向）表示要完成请求，需要进一步操作。-通常，这些状态代码用来重定向"><a href="#2、-3-开头-（请求被重定向）表示要完成请求，需要进一步操作。-通常，这些状态代码用来重定向" class="headerlink" title="2、 3** 开头 （请求被重定向）表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向"></a>2、 3** 开头 （请求被重定向）表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向</h4><p>300 （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。<br>301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。<br>302 （临时移动）   服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。<br>303 （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。<br>304 （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。<br>305 （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。<br>307 （临时重定向）   服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<h4 id="3、-4-开头-（请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。"><a href="#3、-4-开头-（请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。" class="headerlink" title="3、 4**开头 （请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。"></a>3、 4**开头 （请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。</h4><p>400 （错误请求） 服务器不理解请求的语法。<br>401 （未授权） 请求要求身份验证。   对于需要登录的网页，服务器可能返回此响应。<br>403 （禁止） 服务器拒绝请求。<br>404 （未找到） 服务器找不到请求的网页。<br>405 （方法禁用） 禁用请求中指定的方法。<br>406 （不接受） 无法使用请求的内容特性响应请求的网页。<br>407 （需要代理授权） 此状态代码与   401（未授权）类似，但指定请求者应当授权使用代理。<br>408 （请求超时） 服务器等候请求时发生超时。  </p>
+<h4 id="4、-5-开头（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。-这些错误可能是服务器本身的错误，而不是请求出错。"><a href="#4、-5-开头（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。-这些错误可能是服务器本身的错误，而不是请求出错。" class="headerlink" title="4、 5**开头（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。"></a>4、 5**开头（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</h4><p>500 （服务器内部错误） 服务器遇到错误，无法完成请求。<br>501 （尚未实施） 服务器不具备完成请求的功能。   例如，服务器无法识别请求方法时可能会返回此代码。<br>502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。<br>503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。<br>504 （网关超时）   服务器作为网关或代理，但是没有及时从上游服务器收到请求。<br>505 （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;HTTP的状态码&quot;&gt;&lt;a href=&quot;#HTTP的状态码&quot; class=&quot;headerlink&quot; title=&quot;HTTP的状态码&quot;&gt;&lt;/a&gt;HTTP的状态码&lt;/h1&gt;&lt;h4 id=&quot;1、-2-开头-（请求成功）表示成功处理了请求的状态代码。&quot;&gt;&lt;a href=&quot;#
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>es6笔记</title>
@@ -135,14 +157,15 @@
     <link href="http://yoursite.com/2020/02/26/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/"/>
     <id>http://yoursite.com/2020/02/26/浏览器渲染机制/</id>
     <published>2020-02-26T01:27:07.180Z</published>
-    <updated>2020-02-26T01:56:09.056Z</updated>
+    <updated>2020-02-26T02:00:42.423Z</updated>
     
     <content type="html"><![CDATA[<h1 id="浏览器的渲染机制"><a href="#浏览器的渲染机制" class="headerlink" title="浏览器的渲染机制"></a>浏览器的渲染机制</h1><p>GUI渲染线程<br>·负责渲染浏览器界面，解析HTML,CSS,构建DOM树和RenderObject树，布局和绘制等。<br>·当界面需要重绘或由于某种操作引发回流时，该线程就会执行。  </p>
 <h2 id="·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）-GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。"><a href="#·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）-GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。" class="headerlink" title="·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）,GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。 "></a>·注意，GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于冻结了）,GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。 </h2><p>JS引擎线程<br>JS引擎线程负责解析JavaScript脚本，运行代码。<br>JS引擎一直等待着任务队列中任务的到来，然后加以处理，一个Tab页（render进程）中无论什么时候都只有一个JS线程在运行JS程序。  </p>
 <h2 id="同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。"><a href="#同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。" class="headerlink" title="同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。  "></a>同样注意，GUI渲染线程与JS引擎线程是互斥的，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。  </h2><p>事件触发线程<br>归属于浏览器而不是JS引擎，用来控制事件循环（可以理解成JS引擎自己都忙不过来，需要浏览器另开线程协助）。<br>当JS引擎执行代码块如setTimeout时（也可来自浏览器内核的其它线程，如鼠标点击，AJAX异步请求等），会将对应任务添加到事件线程中。<br>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。  </p>
 <h2 id="注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。"><a href="#注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。" class="headerlink" title="注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。  "></a>注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）。  </h2><p>定时触发器线程<br>传说中的setTimeout和setInterval所在的线程<br>浏览器定时计数器并不是由JavaScript引擎计数的，（因为JavaScript引擎是单线程的，如果处于阻塞线程状态就会影响计时的准确）  </p>
 <h2 id="因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）"><a href="#因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）" class="headerlink" title="因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）  "></a>因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）  </h2><p>异步http请求线程<br>在XMLHttpRequest在连接后是通过浏览器新型一个线程请求<br>将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中，再由JavaScript引擎执行  </p>
-<h2 id><a href="#" class="headerlink" title></a><img src="/.com//ceshi/web1.png" alt="流程"></h2><h3 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h3><p>浏览器渲染引擎工作流程都差不多，大致分为5步，创建DOM树——创建StyleRules——创建Render树——布局Layout——绘制Painting</p>
+<hr>
+<h3 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h3><p>浏览器渲染引擎工作流程都差不多，大致分为5步，创建DOM树——创建StyleRules——创建Render树——布局Layout——绘制Painting</p>
 <p>第一步，用HTML分析器，分析HTML元素，构建一颗DOM树(标记化和树构建)。</p>
 <p>第二步，用CSS分析器，分析CSS文件和元素上的inline样式，生成页面的样式表。</p>
 <p>第三步，将DOM树和样式表，关联起来，构建一颗Render树(这一过程又称为Attachment)。每个DOM节点都有attach方法，接受样式信息，返回一个render对象(又名renderer)。这些render对象最终会被构建成一颗Render树。</p>
@@ -150,7 +173,6 @@
 <p>第五步，Render树和节点显示坐标都有了，就调用每个节点paint方法，把它们绘制出来。</p>
 <h3 id="js操作dom的代价"><a href="#js操作dom的代价" class="headerlink" title="js操作dom的代价"></a>js操作dom的代价</h3><p>用我们传统的开发模式，原生JS或JQ操作DOM时，浏览器会从构建DOM树开始从头到尾执行一遍流程。在一次操作中，我需要更新10个DOM节点，浏览器收到第一个DOM请求后并不知道还有9次更新操作，因此会马上执行流程，最终执行10次。例如，第一次计算完，紧接着下一个DOM更新请求，这个节点的坐标值就变了，前一次计算为无用功。计算DOM节点坐标值等都是白白浪费的性能。即使计算机硬件一直在迭代更新，操作DOM的代价仍旧是昂贵的，频繁操作还是会出现页面卡顿，影响用户体验。</p>
 <h3 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h3><p>虚拟DOM就是为了解决浏览器性能问题而被设计出来的。如前，若一次操作中有10次更新DOM的动作，虚拟DOM不会立即操作DOM，而是将这10次更新的diff内容保存到本地一个JS对象中，最终将这个JS对象一次性attch到DOM树上，再进行后续操作，避免大量无谓的计算量。所以，用JS对象模拟DOM节点的好处是，页面的更新可以先全部反映在JS对象(虚拟DOM)上，操作内存中的JS对象的速度显然要更快，等更新完成后，再将最终的JS对象映射成真实的DOM，交由浏览器去绘制。</p>
-<p><img src="/.com//web2.png" alt="过程"></p>
 ]]></content>
     
     <summary type="html">
@@ -276,6 +298,29 @@
   </entry>
   
   <entry>
+    <title>跨域的一些东西</title>
+    <link href="http://yoursite.com/2018/03/23/%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://yoursite.com/2018/03/23/跨域/</id>
+    <published>2018-03-22T16:00:00.000Z</published>
+    <updated>2018-03-23T02:37:19.011Z</updated>
+    
+    <content type="html"><![CDATA[<p>一.、什么是跨域？<br>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。<br>所谓同源是指，域名，协议，端口均相同，不明白没关系，举个栗子：<br><a href="http://www.123.com/index.html" target="_blank" rel="external">http://www.123.com/index.html</a> 调用 <a href="http://www.123.com/server.php" target="_blank" rel="external">http://www.123.com/server.php</a> （非跨域）<br><a href="http://www.123.com/index.html" target="_blank" rel="external">http://www.123.com/index.html</a> 调用 <a href="http://www.456.com/server.php" target="_blank" rel="external">http://www.456.com/server.php</a> （主域名不同:123/456，跨域）<br><a href="http://abc.123.com/index.html" target="_blank" rel="external">http://abc.123.com/index.html</a> 调用 <a href="http://def.123.com/server.php" target="_blank" rel="external">http://def.123.com/server.php</a> （子域名不同:abc/def，跨域）<br><a href="http://www.123.com:8080/index.html" target="_blank" rel="external">http://www.123.com:8080/index.html</a> 调用 <a href="http://www.123.com:8081/server.php" target="_blank" rel="external">http://www.123.com:8081/server.php</a> （端口不同:8080/8081，跨域）<br><a href="http://www.123.com/index.html" target="_blank" rel="external">http://www.123.com/index.html</a> 调用 <a href="https://www.123.com/server.php" target="_blank" rel="external">https://www.123.com/server.php</a> （协议不同:http/https，跨域）<br>请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。<br>浏览器执行javascript脚本时，会检查这个脚本属于哪个页面，如果不是同源页面，就不会被执行。</p>
+<p>二、为什么浏览器要限制跨域访问呢？<br>原因就是安全问题：如果一个网页可以随意地访问另外一个网站的资源，那么就有可能在客户完全不知情的情况下出现安全问题。比如下面的操作就有安全问题：<br> &ensp;&ensp; &ensp; 1.用户访问www.mybank.com ，登陆并进行网银操作，这时cookie啥的都生成并存放在浏览器<br> &ensp;&ensp; &ensp; 2.用户突然想起件事，并迷迷糊糊地访问了一个邪恶的网站 www.xiee.com<br>  &ensp;&ensp; &ensp;3.这时该网站就可以在它的页面中，拿到银行的cookie，比如用户名，登陆token等，然后发起对www.mybank.com 的操作。<br> &ensp;&ensp;&ensp;  4.如果这时浏览器不予限制，并且银行也没有做响应的安全处理的话，那么用户的信息有可能就这么泄露了。</p>
+<p>三、什么是协议？<br>简单来说，协议就是计算机与计算机之间通过网络实现通信时事先达成的一种”约定”，这种约定使那些由不同厂家生产的计算机，只要遵守相同的协议就能进行实现通信</p>
+<p>四、url<br>每个Web服务器资源都有一个名字，这样客户端就可以说明他们感兴趣的资源是什么了。服务器资源名被统一称为统一资源标识符（url）。URL就像邮箱地址一样，在世界范围内唯一标识并定位信息资源。</p>
+<p>五、域名  端口<br>在tcp中，你需要知道服务器的IP地址，以及与服务器上运行的特定软件相关的TCP端口号。<br>几个URL:<br><a href="http://207.200.83.29：80/index.html" target="_blank" rel="external">http://207.200.83.29：80/index.html</a><br><a href="http://www.netscape.com:80/index.html" target="_blank" rel="external">http://www.netscape.com:80/index.html</a><br><a href="http://www.netscape.com/index.html" target="_blank" rel="external">http://www.netscape.com/index.html</a><br>第一个URL使用了机器的IP地址，207.200.83.29以及端口号80。<br>第二个URL没有使用数字形式的IP地址，它使用的是文本形式形式的域名，或者称为主机名（www.netscape.com）。主机名就是IP地址比较人性化的别称。可以通过一种称为域名服务(DNS)的机制方便的将主机名转换为IP地址，这样所有问题就都解决了。第二章会介绍更多的关于DNS和URL的内容。<br>最后一个URL没有端口号。HTTP的URL中没有端口号时，可以假设默认端口号80。有了IP地址和端口号，客户端就可以方便的TCP/IP进行通信了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一.、什么是跨域？&lt;br&gt;跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。&lt;br&gt;所谓同源是指，域名，协议，端口均相同，不明白没关系，举个栗子：&lt;br&gt;&lt;a href=&quot;http://www.123.co
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>网页工具(随缘更)</title>
     <link href="http://yoursite.com/2018/03/23/%E7%BD%91%E9%A1%B5%E5%B7%A5%E5%85%B7/"/>
     <id>http://yoursite.com/2018/03/23/网页工具/</id>
@@ -295,29 +340,6 @@
 &lt;p&gt;segmentfault&lt;br&gt;掘金&lt;br&gt;javascript高级程序设计&lt;/p&gt;
 &lt;p&gt;设计达人&lt;br&gt;阿里图标库&lt;br&gt;jqury插件库&lt;/p&gt;
 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>跨域的一些东西</title>
-    <link href="http://yoursite.com/2018/03/23/%E8%B7%A8%E5%9F%9F/"/>
-    <id>http://yoursite.com/2018/03/23/跨域/</id>
-    <published>2018-03-22T16:00:00.000Z</published>
-    <updated>2018-03-23T02:37:19.011Z</updated>
-    
-    <content type="html"><![CDATA[<p>一.、什么是跨域？<br>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。<br>所谓同源是指，域名，协议，端口均相同，不明白没关系，举个栗子：<br><a href="http://www.123.com/index.html" target="_blank" rel="external">http://www.123.com/index.html</a> 调用 <a href="http://www.123.com/server.php" target="_blank" rel="external">http://www.123.com/server.php</a> （非跨域）<br><a href="http://www.123.com/index.html" target="_blank" rel="external">http://www.123.com/index.html</a> 调用 <a href="http://www.456.com/server.php" target="_blank" rel="external">http://www.456.com/server.php</a> （主域名不同:123/456，跨域）<br><a href="http://abc.123.com/index.html" target="_blank" rel="external">http://abc.123.com/index.html</a> 调用 <a href="http://def.123.com/server.php" target="_blank" rel="external">http://def.123.com/server.php</a> （子域名不同:abc/def，跨域）<br><a href="http://www.123.com:8080/index.html" target="_blank" rel="external">http://www.123.com:8080/index.html</a> 调用 <a href="http://www.123.com:8081/server.php" target="_blank" rel="external">http://www.123.com:8081/server.php</a> （端口不同:8080/8081，跨域）<br><a href="http://www.123.com/index.html" target="_blank" rel="external">http://www.123.com/index.html</a> 调用 <a href="https://www.123.com/server.php" target="_blank" rel="external">https://www.123.com/server.php</a> （协议不同:http/https，跨域）<br>请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。<br>浏览器执行javascript脚本时，会检查这个脚本属于哪个页面，如果不是同源页面，就不会被执行。</p>
-<p>二、为什么浏览器要限制跨域访问呢？<br>原因就是安全问题：如果一个网页可以随意地访问另外一个网站的资源，那么就有可能在客户完全不知情的情况下出现安全问题。比如下面的操作就有安全问题：<br> &ensp;&ensp; &ensp; 1.用户访问www.mybank.com ，登陆并进行网银操作，这时cookie啥的都生成并存放在浏览器<br> &ensp;&ensp; &ensp; 2.用户突然想起件事，并迷迷糊糊地访问了一个邪恶的网站 www.xiee.com<br>  &ensp;&ensp; &ensp;3.这时该网站就可以在它的页面中，拿到银行的cookie，比如用户名，登陆token等，然后发起对www.mybank.com 的操作。<br> &ensp;&ensp;&ensp;  4.如果这时浏览器不予限制，并且银行也没有做响应的安全处理的话，那么用户的信息有可能就这么泄露了。</p>
-<p>三、什么是协议？<br>简单来说，协议就是计算机与计算机之间通过网络实现通信时事先达成的一种”约定”，这种约定使那些由不同厂家生产的计算机，只要遵守相同的协议就能进行实现通信</p>
-<p>四、url<br>每个Web服务器资源都有一个名字，这样客户端就可以说明他们感兴趣的资源是什么了。服务器资源名被统一称为统一资源标识符（url）。URL就像邮箱地址一样，在世界范围内唯一标识并定位信息资源。</p>
-<p>五、域名  端口<br>在tcp中，你需要知道服务器的IP地址，以及与服务器上运行的特定软件相关的TCP端口号。<br>几个URL:<br><a href="http://207.200.83.29：80/index.html" target="_blank" rel="external">http://207.200.83.29：80/index.html</a><br><a href="http://www.netscape.com:80/index.html" target="_blank" rel="external">http://www.netscape.com:80/index.html</a><br><a href="http://www.netscape.com/index.html" target="_blank" rel="external">http://www.netscape.com/index.html</a><br>第一个URL使用了机器的IP地址，207.200.83.29以及端口号80。<br>第二个URL没有使用数字形式的IP地址，它使用的是文本形式形式的域名，或者称为主机名（www.netscape.com）。主机名就是IP地址比较人性化的别称。可以通过一种称为域名服务(DNS)的机制方便的将主机名转换为IP地址，这样所有问题就都解决了。第二章会介绍更多的关于DNS和URL的内容。<br>最后一个URL没有端口号。HTTP的URL中没有端口号时，可以假设默认端口号80。有了IP地址和端口号，客户端就可以方便的TCP/IP进行通信了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一.、什么是跨域？&lt;br&gt;跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。&lt;br&gt;所谓同源是指，域名，协议，端口均相同，不明白没关系，举个栗子：&lt;br&gt;&lt;a href=&quot;http://www.123.co
     
     </summary>
     
